@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div class="ctx-shell" style="min-height: 100vh; width: 100%; background: oklch(0.995 0.001 90); color: oklch(0.15 0 0); display: flex; flex-direction: column; font-family: 'Newsreader', Georgia, serif; box-sizing: border-box;">
+
+  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 24px 7vw; border-bottom: 1px solid oklch(0.15 0 0 / 0.08);">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.01em;">Context Lab</span>
+    <a href="/field-notes/" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: oklch(0.15 0 0); text-decoration: none; letter-spacing: 0.01em;">field notes →</a>
+  </nav>
+
+  <div class="ctx-main" style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 6vw 7vw;">
+
+    <div style="max-width: 760px;">
+      <div class="ctx-headline" style="font-size: clamp(44px, 7vw, 92px); line-height: 1.04; font-weight: 500; letter-spacing: -0.02em; margin: 0 0 28px 0; max-width: 11ch;">
+        Grounded engineering<br />
+        for <span style="font-style: italic; color: oklch(0.4 0 0);">AI systems.</span>
+      </div>
+
+      <div style="font-size: clamp(16px, 1.6vw, 20px); line-height: 1.6; color: oklch(0.35 0 0); max-width: 34ch;">
+        Notes on building, shipping, and operating.
+      </div>
+    </div>
+
+    <div class="ctx-contact" style="padding-top: 64px; display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap;">
+      <a href="mailto:hello@ctx-lab.com" style="font-family: 'JetBrains Mono', monospace; font-size: clamp(20px, 2.2vw, 28px); color: oklch(0.15 0 0); text-decoration: none; letter-spacing: -0.01em;">
+        hello@ctx&#8209;lab.com
+      </a>
+    </div>
+
+  </div>
+
+</div>
+{{ end }}

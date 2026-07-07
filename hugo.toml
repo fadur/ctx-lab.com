@@ -1,0 +1,16 @@
+baseURL = "https://ctx-lab.com/"
+languageCode = "en-us"
+title = "Context Lab"
+
+enableRobotsTXT = true
+
+[markup.goldmark.extensions]
+  footnote = true
+
+[params]
+  description = "Embedded engineering for companies building AI. No decks, no theatre. I build, ship, and operate."
+  author = "Context Lab"
+  siteImage = "/og-image.png"
+
+[taxonomies]
+  tag = "tags"

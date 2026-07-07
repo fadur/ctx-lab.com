@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" font-family="ui-monospace, 'JetBrains Mono', monospace">
+  <rect width="900" height="320" fill="#ffffff"/>
+
+  <!-- Run 1 -->
+  <rect x="30" y="40" width="180" height="80" rx="6" fill="#ffffff" stroke="#18181b" stroke-width="1.5"/>
+  <text x="120" y="75" text-anchor="middle" font-size="14" fill="#18181b" font-weight="600">Run</text>
+  <text x="120" y="95" text-anchor="middle" font-size="11" fill="#71717a">executes steps</text>
+
+  <!-- arrow down to interrupt outcome -->
+  <line x1="120" y1="120" x2="120" y2="170" stroke="#a1a1aa" stroke-width="1.5"/>
+  <polygon points="120,170 115,160 125,160" fill="#a1a1aa"/>
+
+  <!-- Interrupt terminal state -->
+  <rect x="20" y="180" width="200" height="90" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="120" y="210" text-anchor="middle" font-size="13" fill="#dc2626" font-weight="700">outcome: interrupt</text>
+  <text x="120" y="230" text-anchor="middle" font-size="10" fill="#7f1d1d">terminal, not an error</text>
+  <text x="120" y="248" text-anchor="middle" font-size="10" fill="#7f1d1d">interruptId + payload</text>
+
+  <!-- arrow right to durable store -->
+  <line x1="220" y1="225" x2="330" y2="225" stroke="#a1a1aa" stroke-width="1.5"/>
+  <polygon points="330,225 320,220 320,230" fill="#a1a1aa"/>
+
+  <!-- Durable store (owned by you, not the spec) -->
+  <rect x="340" y="180" width="220" height="90" rx="6" fill="#fafaf9" stroke="#4f46e5" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="450" y="205" text-anchor="middle" font-size="12" fill="#4f46e5" font-weight="700">durable store</text>
+  <text x="450" y="225" text-anchor="middle" font-size="10" fill="#3f3f46">who owns this: you</text>
+  <text x="450" y="243" text-anchor="middle" font-size="10" fill="#3f3f46">not the spec</text>
+  <text x="450" y="261" text-anchor="middle" font-size="10" fill="#3f3f46">correlates interruptId</text>
+
+  <!-- arrow right to human -->
+  <line x1="560" y1="225" x2="660" y2="225" stroke="#a1a1aa" stroke-width="1.5"/>
+  <polygon points="660,225 650,220 650,230" fill="#a1a1aa"/>
+
+  <!-- Human -->
+  <rect x="670" y="180" width="180" height="90" rx="6" fill="#ffffff" stroke="#18181b" stroke-width="1.5"/>
+  <text x="760" y="212" text-anchor="middle" font-size="13" fill="#18181b" font-weight="600">Human</text>
+  <text x="760" y="234" text-anchor="middle" font-size="10" fill="#71717a">resume value:</text>
+  <text x="760" y="250" text-anchor="middle" font-size="10" fill="#71717a">approved / rejected</text>
+
+  <!-- arrow up to new run -->
+  <path d="M 760 180 C 760 120, 500 60, 260 60" fill="none" stroke="#a1a1aa" stroke-width="1.5"/>
+  <polygon points="260,60 270,55 270,65" fill="#a1a1aa"/>
+
+  <!-- New run -->
+  <rect x="260" y="20" width="200" height="80" rx="6" fill="#ffffff" stroke="#18181b" stroke-width="1.5"/>
+  <text x="360" y="50" text-anchor="middle" font-size="13" fill="#18181b" font-weight="600">New run</text>
+  <text x="360" y="70" text-anchor="middle" font-size="10" fill="#71717a">resume[] keyed to interruptId</text>
+  <text x="360" y="86" text-anchor="middle" font-size="10" fill="#71717a">no stack survives the boundary</text>
+
+  <text x="450" y="305" text-anchor="middle" font-size="11" fill="#71717a">The spec defines the top row and the middle box's shape. It says nothing about what's inside it.</text>
+</svg>

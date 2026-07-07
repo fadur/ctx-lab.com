@@ -1,0 +1,27 @@
+<svg width="680" height="180" viewBox="0 0 680 180" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>Entra On-Behalf-Of token exchange flow</title>
+<desc>User sends a request to an agent, which presents its own token to Entra for an RFC 8693 On-Behalf-Of exchange, and the resource receives a fresh scoped token instead of the original.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5F5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+
+<rect x="40" y="80" width="130" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="105" y="98" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#444441">User</text>
+<text x="105" y="116" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" fill="#5F5E5A">sends request</text>
+
+<line x1="170" y1="108" x2="185" y2="108" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="185" y="80" width="130" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="250" y="98" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#444441">Agent</text>
+<text x="250" y="116" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" fill="#5F5E5A">presents token</text>
+
+<line x1="315" y1="108" x2="330" y2="108" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="330" y="80" width="155" height="56" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="407" y="98" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#0C447C">Entra OBO</text>
+<text x="407" y="116" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" fill="#185FA5">RFC 8693 exchange</text>
+
+<line x1="485" y1="108" x2="500" y2="108" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="500" y="80" width="130" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="565" y="98" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#444441">Resource</text>
+<text x="565" y="116" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" fill="#5F5E5A">scoped token</text>
+</svg>

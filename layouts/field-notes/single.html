@@ -1,0 +1,40 @@
+{{ define "title" }}{{ .Title }} — {{ .Site.Title }}{{ end }}
+{{ define "style" }}
+  .post-body { line-height: 1.7; font-size: clamp(16px, 1.6vw, 19px); }
+  .post-body p { margin: 0 0 1.4em 0; }
+  .post-body h2 { font-size: clamp(20px, 2vw, 26px); font-weight: 500; letter-spacing: -0.02em; margin: 2em 0 0.6em 0; }
+  .post-body h3 { font-size: clamp(16px, 1.6vw, 19px); font-weight: 500; margin: 1.6em 0 0.4em 0; }
+  .post-body a { color: inherit; }
+  .post-body code { font-family: 'JetBrains Mono', monospace; font-size: 0.85em; background: oklch(0.92 0 0); padding: 0.1em 0.35em; border-radius: 3px; }
+  .post-body pre { background: oklch(0.12 0 0); color: oklch(0.92 0 0); padding: 20px 24px; border-radius: 4px; overflow-x: auto; margin: 1.6em 0; }
+  .post-body pre code { background: none; padding: 0; font-size: 13px; }
+  .post-body img { display: block; max-width: 100%; height: auto; margin: 2em auto; border-radius: 6px; border: 1px solid oklch(0.15 0 0 / 0.08); }
+  .post-body figure { margin: 2.4em 0; }
+  .post-body figure img { margin: 0 auto 0.75em auto; }
+  .post-body figcaption { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: oklch(0.55 0 0); text-align: center; line-height: 1.5; }
+  .post-body .footnotes { margin-top: 3em; padding-top: 1.6em; border-top: 1px solid oklch(0.15 0 0 / 0.1); font-size: 0.85em; color: oklch(0.45 0 0); }
+  .post-body .footnotes hr { display: none; }
+  .post-body .footnotes ol { padding-left: 1.2em; }
+  .post-body .footnotes li { margin-bottom: 0.6em; line-height: 1.6; }
+{{ end }}
+{{ define "main" }}
+<div style="min-height: 100vh; background: oklch(0.995 0.001 90); color: oklch(0.15 0 0); font-family: 'Newsreader', Georgia, serif; box-sizing: border-box; display: flex; justify-content: center; padding: 6vw 24px;">
+
+  <div style="width: 100%; max-width: 640px;">
+    <div style="margin-bottom: 64px;">
+      <a href="/field-notes/" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: oklch(0.55 0 0); text-decoration: none;">← field notes</a>
+    </div>
+
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: oklch(0.55 0 0); margin-bottom: 16px;">
+      {{ .Date.Format "January 2, 2006" }}{{ with .Params.author }} · {{ . }}{{ end }}
+    </div>
+
+    <h1 style="font-size: clamp(28px, 4vw, 48px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 48px 0;">{{ .Title }}</h1>
+
+    <div class="post-body">
+      {{ .Content }}
+    </div>
+  </div>
+
+</div>
+{{ end }}
