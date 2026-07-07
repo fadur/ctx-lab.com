@@ -8,8 +8,8 @@ enableRobotsTXT = true
   footnote = true
 
 [params]
-  description = "Embedded engineering for companies building AI. No decks, no theatre. I build, ship, and operate."
-  author = "Context Lab"
+  description = "Notes on building, shipping, and operating AI systems."
+  author = "Feisal Adur"
   siteImage = "/og-image.png"
 
 [taxonomies]

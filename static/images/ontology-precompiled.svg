@@ -1,0 +1,51 @@
+<svg viewBox="0 0 760 440" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SF Mono', Menlo, monospace" fill="none">
+  <!-- TODAY -->
+  <text x="40" y="42" fill="#1a1a1a" font-size="15" font-weight="600">TODAY</text>
+  <text x="40" y="64" fill="#777" font-size="12">every anticipated question becomes software</text>
+
+  <text x="40" y="106" fill="#1a1a1a" font-size="12">questions</text>
+
+  <!-- fan-out lines -->
+  <line x1="118" y1="102" x2="196" y2="102" stroke="#1a1a1a" stroke-width="1.2"/>
+  <line x1="118" y1="102" x2="196" y2="142" stroke="#1a1a1a" stroke-width="1.2"/>
+  <line x1="118" y1="102" x2="196" y2="182" stroke="#1a1a1a" stroke-width="1.2"/>
+  <line x1="118" y1="102" x2="196" y2="222" stroke="#1a1a1a" stroke-width="1.2"/>
+  <line x1="118" y1="102" x2="196" y2="262" stroke="#1a1a1a" stroke-width="1.2"/>
+
+  <rect x="200" y="84" width="190" height="34" stroke="#1a1a1a" stroke-width="1.2"/>
+  <text x="212" y="106" fill="#1a1a1a" font-size="12">dashboard</text>
+  <rect x="200" y="124" width="190" height="34" stroke="#1a1a1a" stroke-width="1.2"/>
+  <text x="212" y="146" fill="#1a1a1a" font-size="12">report page</text>
+  <rect x="200" y="164" width="190" height="34" stroke="#1a1a1a" stroke-width="1.2"/>
+  <text x="212" y="186" fill="#1a1a1a" font-size="12">internal tool, 3 filters</text>
+  <rect x="200" y="204" width="190" height="34" stroke="#1a1a1a" stroke-width="1.2"/>
+  <text x="212" y="226" fill="#1a1a1a" font-size="12">one-off endpoint</text>
+  <rect x="200" y="244" width="190" height="34" stroke="#1a1a1a" stroke-width="1.2"/>
+  <text x="212" y="266" fill="#1a1a1a" font-size="12">excel export</text>
+
+  <text x="414" y="106" fill="#777" font-size="11">← code to maintain</text>
+  <text x="414" y="146" fill="#777" font-size="11">← code to maintain</text>
+  <text x="414" y="186" fill="#777" font-size="11">← code to maintain</text>
+  <text x="414" y="226" fill="#777" font-size="11">← code to maintain</text>
+  <text x="414" y="266" fill="#777" font-size="11">← code to maintain</text>
+
+  <text x="200" y="308" fill="#777" font-size="12">each one: a pre-compiled answer. breaks on the next schema change.</text>
+
+  <line x1="40" y1="332" x2="720" y2="332" stroke="#ddd" stroke-width="1"/>
+
+  <!-- WITH THE MAP -->
+  <text x="40" y="368" fill="#1a1a1a" font-size="15" font-weight="600">WITH THE MAP</text>
+
+  <text x="40" y="404" fill="#1a1a1a" font-size="12">questions</text>
+  <line x1="118" y1="400" x2="182" y2="400" stroke="#1a1a1a" stroke-width="1.5"/>
+  <path d="M176 395 L184 400 L176 405" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <rect x="188" y="380" width="180" height="34" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="278" y="402" fill="#1a1a1a" font-size="12" text-anchor="middle">agent + definitions</text>
+
+  <line x1="368" y1="400" x2="432" y2="400" stroke="#1a1a1a" stroke-width="1.5"/>
+  <path d="M426 395 L434 400 L426 405" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <text x="440" y="396" fill="#1a1a1a" font-size="12">the exact view, on demand</text>
+  <text x="440" y="414" fill="#777" font-size="11">one artifact to maintain: the definitions</text>
+</svg>
