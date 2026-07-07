@@ -3,7 +3,7 @@ title: "Everything Has Changed, and Yet Everything Is the Same"
 date: 2026-07-07
 author: "Feisal Adur"
 description: "Ontology and semantic layers are back because LLMs finally consume the meaning people used to write down for machines that never arrived."
-draft: true
+draft: false
 ---
 
 The word "ontology" is suddenly everywhere in enterprise AI. From the outside, Palantir seems to have built its whole platform around one.[^1] Databricks shipped its version this year,[^2] and the word "semantic" now shows up on all slides.
