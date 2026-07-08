@@ -72,11 +72,32 @@
 {{ end }}
 
 {{/* ── Fonts ── */}}
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="preload" href="/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/newsreader-italic-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin />
 
 <style>
+  @font-face {
+    font-family: 'Newsreader';
+    src: url('/fonts/newsreader-latin.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400 500;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Newsreader';
+    src: url('/fonts/newsreader-italic-latin.woff2') format('woff2');
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/jetbrains-mono-latin.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400 500;
+    font-display: swap;
+  }
   html, body { margin: 0; padding: 0; background: oklch(0.995 0.001 90); }
   ::selection { background: oklch(0.15 0 0); color: oklch(0.995 0.001 90); }
   .cookie-banner { position: fixed; right: 18px; bottom: 18px; max-width: 320px; background: oklch(0.995 0.001 90 / 0.96); backdrop-filter: blur(10px); border: 1px solid oklch(0.15 0 0 / 0.08); border-radius: 8px; padding: 12px 14px; box-shadow: 0 8px 30px oklch(0.15 0 0 / 0.06); font-family: 'JetBrains Mono', monospace; font-size: 11px; line-height: 1.55; color: oklch(0.35 0 0); }
