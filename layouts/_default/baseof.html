@@ -13,6 +13,9 @@
 {{/* ── Canonical ── */}}
 <link rel="canonical" href="{{ .Permalink }}" />
 
+{{/* ── RSS autodiscovery ── */}}
+<link rel="alternate" type="application/rss+xml" title="Field Notes RSS" href="{{ "/field-notes/index.xml" | absURL }}" />
+
 {{/* ── Meta description ── */}}
 {{ $desc := .Description | default .Summary | default .Site.Params.description }}
 <meta name="description" content="{{ $desc | plainify | truncate 160 }}" />

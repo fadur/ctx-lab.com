@@ -14,3 +14,9 @@ enableRobotsTXT = true
 
 [taxonomies]
   tag = "tags"
+
+[outputs]
+  home = ["HTML"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
