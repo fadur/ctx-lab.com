@@ -2,52 +2,51 @@
 title: "The Teams That Win With AI Aren't the Ones You're Building"
 date: 2026-08-11
 author: "Søren Christensen"
-description: "Productivity tools like Copilot and ChatGPT are becoming commodity—they won't differentiate your business. The real competitive edge comes from bilingual teams that combine technical and domain expertise, capable of problem definition, architectural judgment, and verification. Most organizations are still designing for handoffs when they should be designing for shared context."
+description: "Copilot and ChatGPT improve individual productivity. The harder gains require engineers and domain experts to work in the same team."
 draft: false
 ---
 
-Most organizations are celebrating the wrong AI wins. Do you have the right teams to celebrate the ones that matter?
+Most organizations can point to an AI win. Copilot saves someone half an hour. ChatGPT gets an email out faster. The gains are real, but every company has access to the same tools. They won't set one business apart from another for long.
 
-Copilot saves 30 minutes a day, and ChatGPT drafts emails faster than ever before. These are real productivity gains. But this type of AI is rapidly becoming commodity; it won't be what differentiates your business.
+The more difficult work is applying AI to the parts of the business where context matters and mistakes have a cost. That requires a different kind of team.
 
-The harder question is one I don't hear enough leaders asking: how do you build teams that can harness AI for the work that actually matters?
+## Tools and training aren't enough
 
-**The Gap Between Promise and Practice**
-"Train and release" is insufficient. People need central teams to co-build with them, but co-building is resource-intensive. 
+Giving people access to a tool, running a training session, and sending them back to their usual work rarely produces much beyond personal productivity. A central AI team can help people build something more useful, but it cannot embed itself in every part of the organization.
 
-Where do you invest?
+That leaves a choice about where to spend time. Personal productivity tools help people become comfortable with AI and learn where not to trust it. Work on business processes can create an advantage that competitors cannot buy with the same software license. Both are useful, but they need different levels of support.
 
-- Personal productivity tools build trust and develop judgment. 
-- Strategic automation creates differentiation. 
+## The work people still own
 
-Both matter, but they require different teams.
+AI can produce code and documentation. It cannot decide which problem is worth solving or what a good result looks like for a particular business.
 
-**Where Humans Create Value**
-When AI handles code generation and documentation, the work shifts higher up the value stack. Problem definition; deciding what to build and why, is something AI can't determine for you. Architecture and trade-offs require human judgment because choosing between performance, cost, and maintainability depends on context. 
+Those decisions depend on context: why a process works the way it does, what has already been tried, which trade-offs are acceptable, and what regulation allows. Much of that knowledge is held by people rather than written down in a form a model can use.
 
-That context; why we do things this way, what we tried before, what regulations require -represents organizational knowledge AI doesn't have.
+Someone also has to verify the result. Producing an answer quickly is not useful if nobody on the team can tell whether it is right.
 
-Then there's verification: AI generates, humans validate. Knowing whether something is right matters more than producing it fast.
+## Handoffs lose context
 
-**The Translator Problem**
-Most organizations try one of two approaches. 
+A common response is to ask technical teams to learn enough about the business to build a solution. They may produce something technically sound while missing the detail that matters in practice.
 
-1. Technical teams learn business context, resulting in elegant solutions that miss what matters. 
-2. Business teams learn technical skills, producing relevant ideas that can't scale.
+The reverse has its own limits. Domain experts can learn to use AI tools and prototype an idea, but that does not give them the engineering experience needed to make it reliable, secure, and maintainable.
 
-Both fail because every handoff loses context.
+Passing work between the two groups does not solve this. Each handoff strips away some of the reasoning behind the decisions.
 
-**What works: Bilingual Teams**
-Organizations succeeding with strategic AI integrate both capabilities within the same teams. Engineers who understand business constraints alongside domain experts who understand system design.
+## Put both disciplines in the team
 
-![Tech alone doesn't do it, team up with domain knowledge. Build together.](/static/images/bilingual-teams-infographic.png)
+The better arrangement is a team where engineers and domain experts work together from the start. This does not mean everyone has to become both. It means the people who understand the systems and the people who understand the work share the problem, the decisions, and the responsibility for checking the result.
 
-These teams don't hand off. They share judgment, and AI amplifies both.
+![Tech alone doesn't do it, team up with domain knowledge. Build together.](/images/bilingual-teams-infographic.png)
 
-**Four Questions Before your Next AI Initiative**
-- Can the team verify the output? 
-- What context is missing? 
-- What's the cost of failure? 
-- Do you have bilingual capability or separate teams with handoffs?
+AI gives that team more leverage, but it does not replace either kind of judgment.
 
-Are your teams designed for strategic AI?
+## Before starting
+
+I would ask four things:
+
+- Does someone on the team know how to verify the output?
+- What business context will the system need?
+- What happens when it is wrong?
+- Are the technical and domain experts working together, or passing work between separate teams?
+
+If the answer to the last question is still “separate teams,” adding another AI tool will not fix the problem.
