@@ -1,9 +1,59 @@
+{{ define "style" }}
+  .ctx-word-edit {
+    display: inline-flex;
+    align-items: baseline;
+    width: 4.25ch;
+    white-space: nowrap;
+  }
+  .ctx-word {
+    display: inline-block;
+    color: oklch(0.4 0 0);
+    transition: color 180ms ease;
+  }
+  .ctx-word.is-rewritten {
+    color: #a93424;
+  }
+  .ctx-caret {
+    display: inline-block;
+    width: 0.035em;
+    height: 0.78em;
+    margin-left: 0.06em;
+    background: #a93424;
+    transform: translateY(0.08em);
+    animation: ctx-caret-blink 650ms steps(1) infinite;
+  }
+  .ctx-caret.is-done {
+    animation: none;
+    opacity: 0;
+    transition: opacity 240ms ease;
+  }
+  .ctx-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  @keyframes ctx-caret-blink {
+    50% { opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ctx-caret { display: none; }
+  }
+{{ end }}
 {{ define "main" }}
 <div class="ctx-shell" style="min-height: 100vh; width: 100%; background: oklch(0.995 0.001 90); color: oklch(0.15 0 0); display: flex; flex-direction: column; font-family: 'Newsreader', Georgia, serif; box-sizing: border-box;">
 
   <nav style="display: flex; justify-content: space-between; align-items: center; padding: 24px 7vw; border-bottom: 1px solid oklch(0.15 0 0 / 0.08);">
     <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.01em;">Context Lab</span>
-    <a href="/field-notes/" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: oklch(0.15 0 0); text-decoration: none; letter-spacing: 0.01em;">field notes →</a>
+    <div style="display: flex; align-items: center; gap: 24px;">
+      <a href="/contributors/" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: oklch(0.15 0 0); text-decoration: none; letter-spacing: 0.01em;">contributors</a>
+      <a href="/field-notes/" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: oklch(0.15 0 0); text-decoration: none; letter-spacing: 0.01em;">field notes →</a>
+    </div>
   </nav>
 
   <div class="ctx-main" style="flex: 1; display: flex; flex-direction: column; justify-content: flex-start; gap: 72px; padding: 6vw 7vw;">
@@ -11,7 +61,8 @@
     <div style="max-width: 760px;">
       <div class="ctx-headline" style="font-size: clamp(44px, 7vw, 92px); line-height: 1.04; font-weight: 500; letter-spacing: -0.02em; margin: 0 0 28px 0; max-width: 11ch;">
         Grounded engineering<br />
-        for <span style="font-style: italic; color: oklch(0.4 0 0);">AI systems.</span>
+        <span aria-hidden="true">for <span style="font-style: italic;"><span class="ctx-word-edit"><span id="ctx-edit-word" class="ctx-word">AI</span><span id="ctx-edit-caret" class="ctx-caret"></span></span> systems.</span></span>
+        <span class="ctx-visually-hidden">for Complex systems.</span>
       </div>
 
       <div style="font-size: clamp(16px, 1.6vw, 20px); line-height: 1.6; color: oklch(0.35 0 0); max-width: 34ch;">
@@ -28,4 +79,42 @@
   </div>
 
 </div>
+
+<script>
+(function () {
+  const word = document.getElementById('ctx-edit-word');
+  const caret = document.getElementById('ctx-edit-caret');
+  const finalWord = 'Complex';
+
+  if (!word || !caret) return;
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    word.textContent = finalWord;
+    word.classList.add('is-rewritten');
+    return;
+  }
+
+  function wait(ms) {
+    return new Promise(function (resolve) { window.setTimeout(resolve, ms); });
+  }
+
+  async function rewrite() {
+    await wait(900);
+    while (word.textContent.length) {
+      word.textContent = word.textContent.slice(0, -1);
+      await wait(180);
+    }
+    await wait(220);
+    word.classList.add('is-rewritten');
+    for (const letter of finalWord) {
+      word.textContent += letter;
+      await wait(115);
+    }
+    await wait(700);
+    caret.classList.add('is-done');
+  }
+
+  rewrite();
+})();
+</script>
 {{ end }}

@@ -1,0 +1,106 @@
+{{ define "title" }}Contributors — {{ .Site.Title }}{{ end }}
+{{ define "style" }}
+  .contributors-page {
+    min-height: 100vh;
+    padding: 6vw 24px 10vw;
+    background: oklch(0.995 0.001 90);
+    color: oklch(0.15 0 0);
+    font-family: 'Newsreader', Georgia, serif;
+    box-sizing: border-box;
+  }
+  .contributors-wrap {
+    width: 100%;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .contributors-back {
+    display: inline-block;
+    margin-bottom: 64px;
+    color: oklch(0.55 0 0);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    text-decoration: none;
+  }
+  .contributors-title {
+    margin: 0 0 56px;
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .contributors-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(40px, 8vw, 88px);
+    align-items: start;
+    border-top: 1px solid oklch(0.15 0 0 / 0.1);
+    padding-top: 32px;
+  }
+  .contributor {
+    position: relative;
+    padding-top: 88px;
+  }
+  .contributor:nth-child(2) {
+    margin-top: 48px;
+  }
+  .contributor-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+  }
+  .contributor-photo img {
+    display: block;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(100%) contrast(1.03);
+  }
+  .contributor h2 {
+    margin: 0 0 14px;
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+  }
+  .contributor p {
+    margin: 0;
+    color: oklch(0.4 0 0);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  @media (max-width: 640px) {
+    .contributors-page { padding: 10vw 24px 18vw; }
+    .contributors-grid { grid-template-columns: 1fr; gap: 64px; }
+    .contributor { max-width: 440px; }
+    .contributor:nth-child(2) { margin-top: 0; margin-left: 0; }
+  }
+{{ end }}
+{{ define "main" }}
+<main class="contributors-page">
+  <div class="contributors-wrap">
+    <a class="contributors-back" href="/">← ctx-lab.com</a>
+    <h1 class="contributors-title">Contributors.</h1>
+
+    <div class="contributors-grid">
+      <article class="contributor">
+        <figure class="contributor-photo" data-number="01">
+          <img src="/feisal.jpg" alt="Feisal Adur" width="800" height="800" />
+        </figure>
+        <h2>Feisal Adur</h2>
+        <p>Feisal builds and operates AI systems. He writes about the infrastructure around them: identity, delegation, gateways, semantics, and the boundaries between agents and people.</p>
+      </article>
+
+      <article class="contributor">
+        <figure class="contributor-photo" data-number="02">
+          <img src="/soren.jpg" alt="Søren Christensen" width="800" height="800" />
+        </figure>
+        <h2>Søren Christensen</h2>
+        <p>Søren designs the technical foundations for AI in large organizations. His work spans architecture, business processes, and the organizational changes required to put new systems into practice.</p>
+      </article>
+    </div>
+  </div>
+</main>
+{{ end }}
