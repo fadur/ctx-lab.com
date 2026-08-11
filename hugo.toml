@@ -12,6 +12,11 @@ enableRobotsTXT = true
   author = "Feisal Adur"
   siteImage = "/og-image.png"
 
+  [[params.authors]]
+    name = "Feisal Adur"
+  [[params.authors]]
+    name = "Søren Christensen"
+
 [taxonomies]
   tag = "tags"
 
