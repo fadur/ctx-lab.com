@@ -52,10 +52,12 @@
   "name": "{{ .Site.Title }}",
   "url": "{{ .Site.BaseURL }}",
   "description": "{{ .Site.Params.description }}",
-  "creator": {
-    "@type": "Person",
-    "name": "{{ .Site.Params.author }}"
-  }
+  "creator": [
+    {{ range $i, $author := .Site.Params.authors }}
+      {{ if $i }},{{ end }}
+      { "@type": "Person", "name": "{{ $author.name }}" }
+    {{ end }}
+  ]
 }
 </script>
 {{ else if .IsPage }}
@@ -67,7 +69,12 @@
   "description": "{{ $desc | plainify }}",
   "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
   "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
-  "author": { "@type": "Person", "name": "{{ .Site.Params.author }}" },
+  "author": {{ if .Params.author }}{ "@type": "Person", "name": "{{ .Params.author }}" }{{ else }}[
+    {{ range $i, $author := .Site.Params.authors }}
+      {{ if $i }},{{ end }}
+      { "@type": "Person", "name": "{{ $author.name }}" }
+    {{ end }}
+  ]{{ end }},
   "publisher": { "@type": "Organization", "name": "{{ .Site.Title }}", "url": "{{ .Site.BaseURL }}" },
   "url": "{{ .Permalink }}"
 }
@@ -103,7 +110,7 @@
   }
   html, body { margin: 0; padding: 0; background: oklch(0.995 0.001 90); }
   ::selection { background: oklch(0.15 0 0); color: oklch(0.995 0.001 90); }
-  .cookie-banner { position: fixed; right: 18px; bottom: 18px; max-width: 320px; background: oklch(0.995 0.001 90 / 0.96); backdrop-filter: blur(10px); border: 1px solid oklch(0.15 0 0 / 0.08); border-radius: 8px; padding: 12px 14px; box-shadow: 0 8px 30px oklch(0.15 0 0 / 0.06); font-family: 'JetBrains Mono', monospace; font-size: 11px; line-height: 1.55; color: oklch(0.35 0 0); }
+  .cookie-banner { position: fixed; right: 18px; bottom: 18px; max-width: 320px; background: oklch(0.995 0.001 90 / 0.96); backdrop-filter: blur(10px); border: 1px solid oklch(0.15 0 0 / 0.08); border-radius: 8px; padding: 14px 14px; z-index: 9999; }
   .cookie-banner p { margin: 0 0 10px 0; }
   .cookie-actions { display: flex; gap: 8px; }
   .cookie-btn { appearance: none; border: 1px solid oklch(0.15 0 0 / 0.12); background: transparent; color: oklch(0.15 0 0); font: inherit; padding: 6px 9px; border-radius: 6px; cursor: pointer; }
@@ -121,7 +128,7 @@
 </head>
 <body>
 {{ block "main" . }}{{ end }}
-<footer style="border-top: 1px solid oklch(0.15 0 0 / 0.08); padding: 24px 7vw; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: oklch(0.55 0 0); display: flex; justify-content: flex-end; align-items: center; gap: 24px; flex-wrap: wrap;">
+<footer style="border-top: 1px solid oklch(0.15 0 0 / 0.08); padding: 24px 7vw; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: oklch(0.55 0 0); display: flex; justify-content: flex-end;">
   <span>© 2026 ctx-lab.com · Copenhagen, Denmark</span>
 </footer>
 
