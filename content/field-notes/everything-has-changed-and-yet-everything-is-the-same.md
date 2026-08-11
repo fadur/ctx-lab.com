@@ -3,6 +3,8 @@ title: "Everything Has Changed, and Yet Everything Is the Same"
 date: 2026-07-07
 author: "Feisal Adur"
 description: "Ontology and semantic layers are back because LLMs finally consume the meaning people used to write down for machines that never arrived."
+series: "Ontology"
+series_part: 1
 draft: false
 ---
 
