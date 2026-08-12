@@ -2,7 +2,7 @@
   .ctx-word-edit {
     display: inline-flex;
     align-items: baseline;
-    width: 4.25ch;
+    width: 6.8ch;
     white-space: nowrap;
   }
   .ctx-word {
@@ -10,8 +10,11 @@
     color: oklch(0.4 0 0);
     transition: color 180ms ease;
   }
-  .ctx-word.is-rewritten {
+  .ctx-word.is-complex {
     color: #a93424;
+  }
+  .ctx-word.is-information {
+    color: #39704d;
   }
   .ctx-caret {
     display: inline-block;
@@ -21,6 +24,9 @@
     background: #a93424;
     transform: translateY(0.08em);
     animation: ctx-caret-blink 650ms steps(1) infinite;
+  }
+  .ctx-caret.is-information {
+    background: #39704d;
   }
   .ctx-caret.is-done {
     animation: none;
@@ -62,7 +68,7 @@
       <div class="ctx-headline" style="font-size: clamp(44px, 7vw, 92px); line-height: 1.04; font-weight: 500; letter-spacing: -0.02em; margin: 0 0 28px 0; max-width: 11ch;">
         Grounded engineering<br />
         <span aria-hidden="true">for <span style="font-style: italic;"><span class="ctx-word-edit"><span id="ctx-edit-word" class="ctx-word">AI</span><span id="ctx-edit-caret" class="ctx-caret"></span></span> systems.</span></span>
-        <span class="ctx-visually-hidden">for Complex systems.</span>
+        <span class="ctx-visually-hidden">for information systems.</span>
       </div>
 
       <div style="font-size: clamp(16px, 1.6vw, 20px); line-height: 1.6; color: oklch(0.35 0 0); max-width: 34ch;">
@@ -84,13 +90,11 @@
 (function () {
   const word = document.getElementById('ctx-edit-word');
   const caret = document.getElementById('ctx-edit-caret');
-  const finalWord = 'Complex';
-
   if (!word || !caret) return;
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    word.textContent = finalWord;
-    word.classList.add('is-rewritten');
+    word.textContent = 'information';
+    word.classList.add('is-information');
     return;
   }
 
@@ -98,19 +102,38 @@
     return new Promise(function (resolve) { window.setTimeout(resolve, ms); });
   }
 
-  async function rewrite() {
-    await wait(900);
+  async function erase() {
     while (word.textContent.length) {
       word.textContent = word.textContent.slice(0, -1);
       await wait(180);
     }
-    await wait(220);
-    word.classList.add('is-rewritten');
-    for (const letter of finalWord) {
+  }
+
+  async function type(text) {
+    for (const letter of text) {
       word.textContent += letter;
       await wait(115);
     }
-    await wait(700);
+  }
+
+  async function rewrite() {
+    await wait(1600);
+    await erase();
+    await wait(250);
+
+    word.classList.add('is-complex');
+    await type('complex');
+    await wait(1900);
+
+    await erase();
+    await wait(250);
+
+    word.classList.remove('is-complex');
+    await type('information');
+    word.classList.add('is-information');
+    caret.classList.add('is-information');
+    await wait(900);
+
     caret.classList.add('is-done');
   }
 
