@@ -8,11 +8,13 @@ series_part: 2
 draft: true
 ---
 
-There's a running joke that the modern data stack is a very expensive staging environment for a PowerPoint slide. Databricks on one side, Palantir on the other, and at the end an executive spends ten minutes with the deck and decides what to do.
+There's a running joke that the modern data stack is a very expensive staging environment for a PowerPoint slide. A state-of-the-art lakehouse on one side, Palantir on the other, and at the end an executive spends ten minutes with the deck and decides what to do.
 
-I think of the rest as a reporting museum. Dashboards, KPI scorecards, quarterly forecasts, the data mart whose owner left two reorganizations ago. Everyone walks through, pauses at conversion or fulfillment time, says "interesting," and carries on. The business has been observed. Whether the observation changes anything is somebody else's problem.
+I think of the rest as a reporting museum. The numbers are carefully collected, labelled, and put on display. People come by, look at what changed, and carry on. The business has been observed. Whether the observation changes anything is somebody else's problem.
 
-I ended [the last post](/field-notes/everything-has-changed-and-yet-everything-is-the-same/) with a promise to explain what a decade of arguing about "slow" in observability has to do with ontology.
+That arrangement made sense when a person was always waiting at the end. In [the last post](/field-notes/everything-has-changed-and-yet-everything-is-the-same/), I argued that LLMs finally gave the ontology and semantic layer a reader. Agents take the next step: the reader can act. Once that happens, a precise description of the world is not enough. The system also needs to know which outcome matters, what it may change, and how to tell whether the change helped.
+
+I ended that post with a promise to explain what a decade of arguing about "slow" in observability has to do with ontology.
 
 The argument usually starts with two teams looking at different clocks. The API team says checkout takes 120 milliseconds. The product team says it takes four seconds. Support has customers waiting longer than either. Nobody has necessarily measured badly. The API clock starts when the request reaches the service and stops when the response leaves. The customer's clock starts when they press the button and stops when they know the order went through.
 
@@ -24,40 +26,40 @@ What I learned from these arguments is that "slow" has no useful meaning until y
 
 This is where ontology and the semantic layer meet observability. The ontology identifies the order, payment, customer, service, and events involved. The semantic layer defines which interval "checkout latency" refers to. Only then does "checkout is slow" become a claim two teams can test against the same definition.
 
-A shared definition settles what was observed. It still does not tell you whether the observation is worth acting on.
+A shared definition settles what was observed. It still leaves the question of what to do.
 
-Suppose the company chooses order throughput: get more orders from checkout to dispatch each hour. Faster is no good if fulfillment costs rise or more parcels arrive damaged, so the objective needs guardrails. Another company might choose margin or delivery reliability instead. Deciding among those goals and their trade-offs is the hard part.
+Take a restaurant during an ordinary Wednesday dinner rush. A waiter says, "It's busy tonight." That could mean every table is occupied, tickets are piling up, or plates are waiting at the pass. Each observation describes the same room, but each calls for a different response.
 
-Checkout latency is one signal that may help explain or predict throughput.[^1] If latency rises while completed orders fall, it may be worth acting on. If throughput stays put, latency may just be an interesting number.
+Suppose the restaurant wants to get the right food to each table while it is still hot, without rushing the kitchen into mistakes. Now the observations have a purpose. The manager can slow down seating, move someone onto the line, or ask someone to run food. Then they watch what happens. Did the backlog clear? Did food reach the tables sooner? Did mistakes go up?
 
-The ontology tells you what the measurement is about. The objective tells you why you care. Without that objective, the ontology is an accurate description of the business and nothing more.
+That is the loop: observe the restaurant, interpret the delay, choose an action within the constraints, and check the result. "Busy" is an observed variable. Getting food to the table is what the restaurant is trying to control.[^1] The two are related, but one does not stand in for the other automatically.
 
-In many non-software companies, this is where IT stops. It collects the observations and puts them in dashboards, reports, and quarterly decks. The decision belongs to someone else, and the action to someone else again. That division reflects how the organization was built: the dashboard is the handoff between the people who maintain the information systems and the people with the authority to act.
+The ontology tells you what an observation is about. The objective explains why it matters. The available actions define what can change, and the result tells you whether the reasoning held up.
 
-It's also why KPIs get weird. "Make orders move through the warehouse faster" is a sentence a founder can say and mean. Past a certain size it has to be decomposed. Departments get objectives, teams get metrics, metrics start standing in for other metrics, and eventually the organization is tracking a few hundred numbers. We hope someone is still holding the whole causal chain in their head.
+For most of the history of information systems, observation was a natural place to stop. The system collected the data and put it in a dashboard. A person supplied the objective, made the decision, and took the action. The dashboard was the handoff.
 
-That's how a KPI turns into a number that has to go up because everyone signed off on it going up. By the time it reaches the teams expected to move it, the explanation for why it matters has often disappeared. The stand-in quietly replaces the thing it was standing in for. Teams hit the target and the dashboard goes green. Whether the business improved is harder to answer.
+The objective often travelled separately from the measurement. A clear business goal was decomposed as it moved through the organization. Departments received objectives, teams received metrics, and metrics began standing in for other metrics. Eventually the organization was tracking a few hundred numbers, and we hoped someone was still holding the whole causal chain in their head.
 
-More measurement doesn't fix this. The argument for why moving a particular number should help has to survive alongside the number.
+By the time a KPI reached the teams expected to move it, the explanation for why it mattered had often disappeared. The number had to go up because everyone signed off on it going up. Teams hit the target and the dashboard went green. Whether the business improved was harder to answer.
 
-Lay the pieces end to end and you get a loop. An order has been waiting for 47 minutes. The ontology tells us which order, customer, warehouse, and shipment are involved. The semantic layer tells us that 47 minutes is unusual. The objective tells us whether the delay matters and which trade-offs are acceptable. A decision follows: reprioritize the order, add capacity, or leave it alone. Then the system measures what happened.
+That arrangement worked as long as a person could reconstruct enough of the missing argument to make a decision. An agent cannot be handed a metric and expected to know why the number matters. The objective has to travel with the observation, along with the constraints, permitted actions, and evidence that an action worked.
 
-That last step matters. If the action did not improve throughput, you have learned something about the relationship between the signal and the objective. The loop ends when the result comes back, not when someone acts.
+Imagine an agent helping with an incident after a deployment. Customer-facing latency rises, but the service dashboard remains green. The agent can see traces, metrics, the deployment, its dependencies, and the customer journeys they support. A semantic definition tells it what "degraded" means. The objective is to restore the customer journey without losing data or causing a larger outage.
+
+Its allowed actions might include shifting traffic, adding capacity, rolling back the deployment, or paging the responsible team. After acting, it checks the customer journey again. If latency stays high, the result comes back into the next decision. If the safe options are exhausted, it hands the incident to a person.
+
+Ontology gives the agent the map of services, deployments, dependencies, teams, and customer journeys. The semantic layer gives it consistent measurements. Objectives, constraints, available actions, and feedback turn that information into a loop.
 
 Treat the information system as the thing that makes this loop possible, rather than the thing that produces an artifact to be read and set down.
 
-Agents make this more than an organizational diagram. A dashboard can leave the objective implicit because a person may supply it from experience. An agent needs the objective spelled out, along with the constraints it must respect and the actions it is allowed to take.
-
-For the delayed order, that might mean reprioritizing the queue while keeping fulfillment cost and error rates within bounds. The agent acts, observes the result, and either continues or hands the decision back to a person. Ontology gives it the map. The semantic layer gives it consistent measurements. The objective, constraints, and available actions give it a basis for doing something.
-
-Stick around a non-software company long enough and eventually someone will say, entirely unironically, that IT is a support function, a cost of doing business in the same broad category as keeping the lights on and making sure the printers work.
+Spend enough time in the IT department of a non-software company and you'll eventually hear that IT is a support function, a cost of doing business alongside keeping the lights on and the printers working.
 
 Honestly, that's a reasonable conclusion if IT appears to be running the reporting museum. When an information system collects data, moves it around, and sets a dashboard in front of the person making the decision, it is supporting the business. It may be very expensive support, but the description is fair.
 
 Connect the observations to an objective, the objective to a decision, and the decision to an action whose result comes back into the system, and its role changes. It becomes part of how the business steers itself.
 
-The guy calling IT a cost center is often the same guy who, a few years later, signs a large contract with Palantir to connect the reports back to the business. Some of that money buys real engineering. A good part of it buys software for managing a description of the business.
+An organization can spend years treating IT as a cost center, then sign a large contract with Palantir to connect its reports back to the business. Some of that money buys real engineering. A good part of it buys software for managing a description of the business.
 
-The software can be procured. The description still has to come from people who understand the business well enough to say precisely what its orders, customers, and warehouses are, how they relate, and which outcomes matter. No vendor can do that understanding for you.
+The software can be procured. The description still has to come from people who understand the business well enough to say what its customers, processes, and systems are, how they relate, and which outcomes matter. No vendor can do that understanding for you.
 
 [^1]: In [control theory](https://en.wikipedia.org/wiki/Control_theory), the observed variable is what you measure; the controlled variable is what you're trying to change. Confusing the two is where things go wrong.
