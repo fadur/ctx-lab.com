@@ -56,12 +56,8 @@ Ontology gives the agent the map of services, deployments, dependencies, teams, 
 
 An information system that ends at a dashboard supports the business. One that can close the loop becomes part of how the business steers itself.
 
-My claim is that much of what we are rediscovering as agent architecture is old machinery assembled again under new names. The technology changes. The underlying work does not.
+Which brings me back to the last post: everything has changed, and yet everything is the same. The semantic layer has a reader now, and that reader can act. We still have to decide what the data means.
 
 Last month it was loop engineering. This month it is graph engineering. Next month somebody will explain "quantum ontology orchestration" on a podcast and the rest of us will have to pretend it was inevitable.
-
-Graphs are useful. Agents need relationships they can traverse. But nodes and edges do not decide what a customer is, when a process is complete, or what "slow" means.
-
-A graph can store the result of a shared understanding. It cannot have the conversation that produces one.
 
 [^1]: In [control theory](https://en.wikipedia.org/wiki/Control_theory), a system observes its state, compares it with a desired state, acts, and uses the result as feedback. The important bit here is that measurement only becomes useful for control once you know what outcome you're trying to produce.
