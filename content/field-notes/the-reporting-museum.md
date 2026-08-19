@@ -1,46 +1,50 @@
 ---
 title: "The Reporting Museum"
-date: 2026-08-11
+date: 2026-08-19
 author: "Feisal Adur"
 description: "Modern data infrastructure is very good at describing a business. The useful part begins when observation, objective, decision, and action form a loop."
 series: "Ontology"
 series_part: 2
-draft: true
+draft: false
 ---
 
 There's a running joke that the modern data stack is a very expensive staging environment for a PowerPoint slide. A state-of-the-art lakehouse on one side, Palantir on the other, and at the end an executive spends ten minutes with the deck and decides what to do.
 
-I think of the rest as a reporting museum. The numbers are carefully collected, labelled, and put on display. People come by, look at what changed, and carry on. The business has been observed. Whether the observation changes anything is somebody else's problem.
+I like to think of it as a reporting museum. The numbers are carefully collected, labelled, and put on display. People come by, look at what changed, and carry on. The business has been observed. Whether the observation changes anything is somebody else's problem. Am exaggarating of course. But maybe not by much.
 
-That arrangement made sense when a person was always waiting at the end. In [the last post](/field-notes/everything-has-changed-and-yet-everything-is-the-same/), I argued that LLMs finally gave the ontology and semantic layer a reader. Agents take the next step: the reader can act. Once that happens, a precise description of the world is not enough. The system also needs to know which outcome matters, what it may change, and how to tell whether the change helped.
+Ok, hear me out. That arrangement made sense when the dashboard ended up in front of a person. In [the last post](/field-notes/everything-has-changed-and-yet-everything-is-the-same/), I argued that LLMs finally gave ontology and the semantic layer a reader. I like to think of ontology as a precursor to systems that can adapt, because it shapes a vocabulary your system can reason about. And once you go down that path, a precise description of the world is not enough. You'd want a system that also knows which outcomes matter, what it may change, and how to measure whether the change helped.
 
-I ended that post with a promise to explain what a decade of arguing about "slow" in observability has to do with ontology.
+I ended that post with a promise to explain what a decade of debating "slow" in observability taught me about ontology.
 
-The argument usually starts with two teams looking at different clocks. The API team says checkout takes 120 milliseconds. The product team says it takes four seconds. Support has customers waiting longer than either. Nobody has necessarily measured badly. The API clock starts when the request reaches the service and stops when the response leaves. The customer's clock starts when they press the button and stops when they know the order went through.
+It usually starts with two clocks. The API returns `202 Accepted` in 120 milliseconds; the customer waits five minutes for confirmation. Both numbers are right. One measures acceptance. The other measures completion.
 
-Queues make this worse. A worker may process an order in 80 milliseconds once it picks it up, while the order spends seven minutes waiting. An asynchronous API can return `202 Accepted` almost immediately and still leave the customer waiting five minutes for confirmation. The dashboard says the request was fast because it measured acceptance. The customer was waiting for completion.
+What I learned is that "slow" has no useful meaning. Period. You have to name the thing, its boundary, and the event that marks completion. Is checkout an HTTP request, a payment authorization, an order record, or the whole journey from pressing the button to seeing confirmation? Telemetry alone cannot answer that. Someone has to decide.
 
-Percentiles produce another version of the argument. The median can stay flat while a smaller group of customers gets a much worse experience. If those customers share a region, payment method, or account shape, the slow one percent is not random noise. It is a specific part of the business having a reliably bad time.
+This is where ontology and the semantic layer meet observability.
 
-What I learned from these arguments is that "slow" has no useful meaning until you name the thing, its boundary, and the event that marks completion. Is checkout an HTTP request, a payment authorization, an order record, or the whole journey from pressing the button to seeing confirmation? The telemetry cannot answer that. Someone has to decide.
+An order connects to a customer, a payment, and the systems involved in checkout. Did someone say graph engineering?
 
-This is where ontology and the semantic layer meet observability. The ontology identifies the order, payment, customer, service, and events involved. The semantic layer defines which interval "checkout latency" refers to. Only then does "checkout is slow" become a claim two teams can test against the same definition.
+Ok, fine. Let's use graphs. The graph still does not decide what an order is or when checkout is complete. That is the ontology: the shared understanding of the things in the business and how they relate.
+
+The semantic layer does the same for the numbers. It defines what "checkout latency" measures. Now when someone says checkout is slow, everyone is talking about the same thing.
+
+You can represent an ontology in a graph, and a graph may be the right technology for the job. But choosing a graph database does not give the data a shared meaning any more than choosing a lakehouse does. It gives you somewhere to put the result.
 
 A shared definition settles what was observed. It still leaves the question of what to do.
 
-Take a restaurant during an ordinary Wednesday dinner rush. A waiter says, "It's busy tonight." That could mean every table is occupied, tickets are piling up, or plates are waiting at the pass. Each observation describes the same room, but each calls for a different response.
+Take a restaurant during an ordinary Wednesday dinner rush. A waiter might say, "It's busy tonight." That could mean every table is occupied, order tickets are piling up, or plates are waiting at the pass. Each observation describes the same room, but each calls for a different response. I love food analogies, so bear with me.
 
-Suppose the restaurant wants to get the right food to each table while it is still hot, without rushing the kitchen into mistakes. Now the observations have a purpose. The manager can slow down seating, move someone onto the line, or ask someone to run food. Then they watch what happens. Did the backlog clear? Did food reach the tables sooner? Did mistakes go up?
+Suppose you own the restaurant and want to get the right food to each table while it is still hot, without rushing the kitchen into mistakes. Now the observations have a purpose. You could stop accepting Wolt pickup orders for half an hour or ask someone to run food. Then you watch what happens. Did the backlog clear? Did food reach the tables sooner? Did mistakes go up?
 
-That is the loop: observe the restaurant, interpret the delay, choose an action within the constraints, and check the result. "Busy" is an observed variable. Getting food to the table is what the restaurant is trying to control.[^1] The two are related, but one does not stand in for the other automatically.
+Now it becomes a loop. Observe the restaurant, interpret the delay, choose an action within the constraints, and check the result. "Busy" is an observed state. Getting food to the table is what the restaurant is trying to control.[^1] The two are related, but one does not stand in for the other automatically.
 
-The ontology tells you what an observation is about. The objective explains why it matters. The available actions define what can change, and the result tells you whether the reasoning held up.
+The ontology tells you what an observation is about. The objective explains why it matters. The available actions define what can change, and the result tells you whether the reasoning held up. Did someone say loop engineering?
 
 For most of the history of information systems, observation was a natural place to stop. The system collected the data and put it in a dashboard. A person supplied the objective, made the decision, and took the action. The dashboard was the handoff.
 
 The objective often travelled separately from the measurement. A clear business goal was decomposed as it moved through the organization. Departments received objectives, teams received metrics, and metrics began standing in for other metrics. Eventually the organization was tracking a few hundred numbers, and we hoped someone was still holding the whole causal chain in their head.
 
-By the time a KPI reached the teams expected to move it, the explanation for why it mattered had often disappeared. The number had to go up because everyone signed off on it going up. Teams hit the target and the dashboard went green. Whether the business improved was harder to answer.
+That's why KPIs always felt weird. By the time a KPI reached the teams expected to move it, the explanation for why it mattered had often disappeared. The number had to go up because everyone signed off on it going up. Teams hit the target and the dashboard went green. Whether the business improved was harder to answer.
 
 That arrangement worked as long as a person could reconstruct enough of the missing argument to make a decision. An agent cannot be handed a metric and expected to know why the number matters. The objective has to travel with the observation, along with the constraints, permitted actions, and evidence that an action worked.
 
@@ -50,16 +54,14 @@ Its allowed actions might include shifting traffic, adding capacity, rolling bac
 
 Ontology gives the agent the map of services, deployments, dependencies, teams, and customer journeys. The semantic layer gives it consistent measurements. Objectives, constraints, available actions, and feedback turn that information into a loop.
 
-Treat the information system as the thing that makes this loop possible, rather than the thing that produces an artifact to be read and set down.
+An information system that ends at a dashboard supports the business. One that can close the loop becomes part of how the business steers itself.
 
-Spend enough time in the IT department of a non-software company and you'll eventually hear that IT is a support function, a cost of doing business alongside keeping the lights on and the printers working.
+My claim is that much of what we are rediscovering as agent architecture is old machinery assembled again under new names. The technology changes. The underlying work does not.
 
-Honestly, that's a reasonable conclusion if IT appears to be running the reporting museum. When an information system collects data, moves it around, and sets a dashboard in front of the person making the decision, it is supporting the business. It may be very expensive support, but the description is fair.
+Last month it was loop engineering. This month it is graph engineering. Next month somebody will explain "quantum ontology orchestration" on a podcast and the rest of us will have to pretend it was inevitable.
 
-Connect the observations to an objective, the objective to a decision, and the decision to an action whose result comes back into the system, and its role changes. It becomes part of how the business steers itself.
+Graphs are useful. Agents need relationships they can traverse. But nodes and edges do not decide what a customer is, when a process is complete, or what "slow" means.
 
-An organization can spend years treating IT as a cost center, then sign a large contract with Palantir to connect its reports back to the business. Some of that money buys real engineering. A good part of it buys software for managing a description of the business.
+A graph can store the result of a shared understanding. It cannot have the conversation that produces one.
 
-The software can be procured. The description still has to come from people who understand the business well enough to say what its customers, processes, and systems are, how they relate, and which outcomes matter. No vendor can do that understanding for you.
-
-[^1]: In [control theory](https://en.wikipedia.org/wiki/Control_theory), the observed variable is what you measure; the controlled variable is what you're trying to change. Confusing the two is where things go wrong.
+[^1]: In [control theory](https://en.wikipedia.org/wiki/Control_theory), a system observes its state, compares it with a desired state, acts, and uses the result as feedback. The important bit here is that measurement only becomes useful for control once you know what outcome you're trying to produce.
