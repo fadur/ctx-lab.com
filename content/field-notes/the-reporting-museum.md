@@ -10,7 +10,7 @@ draft: false
 
 There's a running joke that the modern data stack is a very expensive staging environment for a PowerPoint slide. A state-of-the-art lakehouse on one side, Palantir on the other, and at the end an executive spends ten minutes with the deck and decides what to do.
 
-I like to think of it as a reporting museum. The numbers are carefully collected, labelled, and put on display. People come by, look at what changed, and carry on. The business has been observed. Whether the observation changes anything is somebody else's problem. Am exaggarating of course. But maybe not by much.
+I like to think of it as a reporting museum. The numbers are carefully collected, labelled, and put on display. People come by, look at what changed, and carry on. The business has been observed. Whether the observation changes anything is somebody else's problem. I'm exaggerating, of course. But maybe not by much.
 
 Ok, hear me out. That arrangement made sense when the dashboard ended up in front of a person. In [the last post](/field-notes/everything-has-changed-and-yet-everything-is-the-same/), I argued that LLMs finally gave ontology and the semantic layer a reader. I like to think of ontology as a precursor to systems that can adapt, because it shapes a vocabulary your system can reason about. And once you go down that path, a precise description of the world is not enough. You'd want a system that also knows which outcomes matter, what it may change, and how to measure whether the change helped.
 
@@ -38,7 +38,7 @@ Suppose you own the restaurant and want to get the right food to each table whil
 
 Now it becomes a loop. Observe the restaurant, interpret the delay, choose an action within the constraints, and check the result. "Busy" is an observed state. Getting food to the table is what the restaurant is trying to control.[^1] The two are related, but one does not stand in for the other automatically.
 
-The ontology tells you what an observation is about. The objective explains why it matters. The available actions define what can change, and the result tells you whether the reasoning held up. Did someone say loop engineering?
+The ontology tells you what an observation is about. The objective explains why it matters. The available actions define what can change, and the result tells you whether the reasoning held up. Yes, loop engineering predates Claude.
 
 For most of the history of information systems, observation was a natural place to stop. The system collected the data and put it in a dashboard. A person supplied the objective, made the decision, and took the action. The dashboard was the handoff.
 
