@@ -22,7 +22,7 @@ Eventually somebody asks:
 
 One path through the system says the meal is reimbursable up to $75. Another caps it at $82. A third decides that "reasonable amount" means manager approval is required.
 
-Each answer can be locally defensible. Nobody notices, because why would they? They all sound reasonable on their own. It's not like the agents compare notes. The policy required interpretation, and that interpretation happened wherever the instructions were written.
+Each answer can be locally defensible. Nobody notices, because why would they? They all sound reasonable on their own. It's not like the agents compare notes.[^org-chart] The policy required interpretation, and that interpretation happened wherever the instructions were written.
 
 I kept coming back to what I would rather have instead. The nearest analogy is a DSPy signature,[^1] but only in the shape of the interface: give the question declared inputs and outputs rather than leaving every caller to shape the answer for itself. The resolver is not asking a model to interpret the policy again.
 
@@ -152,5 +152,7 @@ Now the agent can explain where the answer came from without every skill author 
 Making meaning callable creates another problem. A skill can say "call `refund_eligibility`," but that assumes the runtime knows what the capability is and how to reach it. The context remains portable; the capability may not be.
 
 In the next post, I'll share how I think agents can bind to these capabilities across distributed runtimes without coupling themselves too tightly. Dependencies travel about as well as I do: technically, but not without complaints.
+
+[^org-chart]: Give it time. Agent orchestration graphs are already starting to resemble org charts, right down to the chief of staff.
 
 [^1]: [DSPy signatures](https://dspy.ai/learn/programming/signatures/) declare the inputs and outputs of a language-model operation. The comparison here is to that declarative contract, not to using an LM to resolve the policy.
