@@ -14,8 +14,6 @@ And yet I have this persistent feeling that I am five or six agent sessions away
 
 Not because the code is obviously bad. The tests pass, it compiles, and every change makes sense on its own. But I can start new sessions faster than I can properly absorb the changes from the last one. It makes me anxious that I might end up maintaining code the model wrote but I never properly understood, while still being accountable for what it does.
 
-My users expect me to ship good software. I expect the same of myself.
-
 Writing code was part of how I learned what I was building. An awkward call site told me when an interface was wrong. A parameter passing through four layers usually meant something lived in the wrong place. Writing it myself did not guarantee good design, but I encountered those problems while the design was still forming.
 
 I am not going back. The industry seems rather more divided about where we have ended up.
