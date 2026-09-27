@@ -1,0 +1,29 @@
+<svg viewBox="0 0 760 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace">
+  <title id="title">Cyclomatic complexity example</title>
+  <desc id="desc">A refund function with two decision points has cyclomatic complexity three: one base path plus two if statements.</desc>
+
+  <rect width="760" height="310" fill="#fbfaf7"/>
+  <line x1="32" y1="28" x2="728" y2="28" stroke="#1b1b1b" stroke-width="1.5"/>
+
+  <text x="32" y="58" fill="#6b6b6b" font-size="11">TWO DECISIONS, THREE PATHS</text>
+
+  <text x="48" y="96" fill="#1b1b1b" font-size="14">func refundable(defective, finalSale bool) bool {</text>
+  <rect x="43" y="111" width="340" height="32" fill="#f3d8d3"/>
+  <text x="64" y="132" fill="#1b1b1b" font-size="14">if defective { return true }</text>
+  <rect x="43" y="151" width="340" height="32" fill="#f3d8d3"/>
+  <text x="64" y="172" fill="#1b1b1b" font-size="14">if finalSale { return false }</text>
+  <text x="64" y="212" fill="#1b1b1b" font-size="14">return true</text>
+  <text x="48" y="244" fill="#1b1b1b" font-size="14">}</text>
+
+  <line x1="432" y1="84" x2="432" y2="244" stroke="#1b1b1b" stroke-opacity=".2"/>
+
+  <text x="468" y="116" fill="#1b1b1b" font-size="16">1</text>
+  <text x="495" y="116" fill="#6b6b6b" font-size="12">base path</text>
+  <text x="468" y="154" fill="#1b1b1b" font-size="16">+ 2</text>
+  <text x="511" y="154" fill="#6b6b6b" font-size="12">decisions</text>
+  <line x1="468" y1="174" x2="640" y2="174" stroke="#1b1b1b" stroke-width="1"/>
+  <text x="468" y="207" fill="#1b1b1b" font-size="19" font-weight="700">C = 3</text>
+
+  <line x1="32" y1="272" x2="728" y2="272" stroke="#1b1b1b" stroke-width="1.5"/>
+  <text x="32" y="296" fill="#6b6b6b" font-size="11">Each decision adds another route through the function.</text>
+</svg>
