@@ -82,9 +82,9 @@ It does not catch a hallucinated API, prove security, or tell me whether the fea
 
 ## The approval layer
 
-The obvious next move is another agent. One writes the code, another inspects the architecture, a third checks the tests, and perhaps a chief of staff coordinates them. Before long you have a very impressive graph of agents reviewing agents, and even more work to verify. Please make it stop.
+The obvious next move is another agent. One writes the code, another inspects the architecture, a third checks the tests, and perhaps a chief of staff coordinates them. Before long you have a very impressive graph of agents reviewing agents, and even more work to verify. I don't know how to make it stop. Please send help.
 
-The checks above reflect what I care about in code I have to maintain. Some things matter more. That is why I have built harnesses I can delegate specific work to. One works through SAST and Dependabot findings, dismisses false positives, and opens an issue when a security decision is missing. Another checks that changes to business behaviour, such as refund rules, trace back to an approved requirement. Both beat threat modelling and compliance in spreadsheets.
+And yet, for the things that matter more than whether I will enjoy maintaining the code, I have built more agents. One works through SAST and Dependabot findings, dismisses false positives, and opens an issue when a security decision is missing. Another checks that changes to business behaviour, such as refund rules, trace back to an approved requirement. Both beat threat modelling and compliance in spreadsheets.
 
 They are useful, but they still leave decisions for me. I might write about those harnesses in a future post.
 
