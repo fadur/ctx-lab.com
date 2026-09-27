@@ -8,19 +8,27 @@ draft: false
 
 I miss coding.
 
-I never decided to stop writing code by hand. I kept giving the agent slightly larger pieces because it kept working. My editor is still always open, but I spend more time in Lazygit reviewing changes than writing code. This is after sixteen years of configuring Neovim to become an IDE.
+I am also shipping more than ever. I build things I would not have had the time or patience to build before. I can try an idea, throw it away, and try another before becoming invested in either. It is genuinely a great time to be alive.
 
-I ship more now. I build things I would not have found the time or patience for before, and I can discard an idea without first spending two days implementing it. I am not going back to how I worked before 2023.
+And yet I have this persistent feeling that I am five or six agent sessions away from breaking everything.
+
+Not because the code is obviously bad. The tests pass, it compiles, and every change makes sense on its own. But I can start new sessions faster than I can properly absorb the changes from the last one. It makes me anxious that I might end up maintaining code the model wrote but I never properly understood, while still being accountable for what it does.
+
+My users expect me to ship good software. I expect the same of myself.
+
+Writing code was part of how I learned what I was building. An awkward call site told me when an interface was wrong. A parameter passing through four layers usually meant something lived in the wrong place. Writing it myself did not guarantee good design, but I encountered those problems while the design was still forming.
+
+I am not going back. The industry seems rather more divided about where we have ended up.
 
 [“I have unlimited tokens” is a wild flex](https://github.com/omacom/ttfx/pull/35#issuecomment-5846803103), and I am happy for him.
 
-For others, [making a living by pressing Enter](https://x.com/v0xium/status/2101526107128529120?s=20) sounds incredibly depressing.
+Then there are people for whom [making a living by pressing Enter](https://x.com/v0xium/status/2101526107128529120?s=20) sounds incredibly depressing.
 
 I understand both reactions.
 
 [Armin Ronacher calls some of this *involution*](https://lucumr.pocoo.org/2026/9/7/astra-why/): more effort and more output without much improvement in what each person gets done. His agent factory ran for 35 hours and produced 75,000 lines of code and 79 commits. None of it was worth keeping.
 
-My users still expect working software. So this is how I work now.
+What follows are a few notes on how I work now, and what I am still trying to get right.
 
 ## My contract with the agent
 
@@ -40,19 +48,9 @@ Of course, a clean interface can hide a giant loop and 300 conditional statement
 
 This is not about taste, or me being picky, or believing I am smarter than the model. These are simply the heuristics I use for code I do not mind maintaining.
 
-## Five sessions away
+My editor is still always open, but I spend more time in Lazygit reviewing changes than writing code. This is after sixteen years of configuring Neovim to become an IDE.
 
-Writing code was part of how I learned what I was building. An awkward call site told me when an interface was wrong. A parameter passing through four layers usually meant something lived in the wrong place. I encountered those problems while the design was still forming.
-
-Writing it myself did not guarantee good design. It did limit how quickly unfamiliar decisions entered the repository.
-
-An agent can return an implementation, tests, and documentation before I have formed an opinion about its first design choice. While reviewing it, I notice another possibility and start a second session. Soon several plausible changes are moving at once.
-
-The result is the constant anxiety that I am five or six sessions away from breaking everything. I have not reached the point of [being done with this way of working](https://x.com/v0xium/status/2101526107128529120?s=20), but I understand how someone gets there.
-
-Usually nothing is broken. The tests pass, the code compiles, and every change has a reasonable explanation. I am anxious because my understanding of the system may no longer be keeping pace with the system itself.
-
-Reviewing everything carefully is the obvious answer. I do not want to review generated code full time. The day becomes a queue of small decisions: keep this abstraction, reject that dependency, ask for another test, collapse these modules, split this function, check whether the library call exists, work out whether the agent quietly widened the task.
+Reviewing everything carefully is the obvious answer. But I do not want to review generated code full time. The day becomes a queue of small decisions: keep this abstraction, reject that dependency, ask for another test, collapse these modules, split this function, check whether the library call exists, work out whether the agent quietly widened the task.
 
 No single decision is especially hard. The accumulation is exhausting.
 
@@ -88,15 +86,17 @@ It does not catch a hallucinated API, prove security, or tell me whether the fea
 
 The obvious next move is another agent. One writes the code, another inspects the architecture, a third checks the tests, and perhaps a chief of staff coordinates them. Before long you have a very impressive graph of agents reviewing agents, and even more work to verify. Please make it stop.
 
-Some things matter more than whether I will enjoy maintaining the code. At work I have built one harness that works through SAST and Dependabot findings, dismisses false positives, and opens an issue when a security decision is missing. Another checks that changes to business behaviour, such as refund rules, trace back to an approved requirement. Both beat threat modelling and compliance in spreadsheets.
+The checks above reflect what I care about in code I have to maintain. Some things matter more. That is why I have built harnesses I can delegate specific work to. One works through SAST and Dependabot findings, dismisses false positives, and opens an issue when a security decision is missing. Another checks that changes to business behaviour, such as refund rules, trace back to an approved requirement. Both beat threat modelling and compliance in spreadsheets.
 
 They are useful, but they still leave decisions for me. I might write about those harnesses in a future post.
+
+I do not miss coding in the literal sense. I miss the confidence that I understand why the code looks the way it does. That is harder to hold onto when the implementation arrives all at once.
 
 [^opus]: I have no benchmark or science to support this. It is just my humble, extensively field-tested opinion.
 
 [^deep-modules]: John Ousterhout develops the distinction between deep and shallow modules in [*A Philosophy of Software Design*](https://web.stanford.edu/~ouster/cgi-bin/book.php).
 
-[^crap]: Alberto Savoia and Bob Evans introduced the CRAP metric as a way to combine complexity and test coverage into an estimate of change risk. The implementation discussed here uses line or statement coverage as a proxy rather than true basis-path coverage.
+[^crap]: Alberto Savoia and Bob Evans introduced the CRAP metric as a way to combine complexity and test coverage into an estimate of change risk. See [“This Code is CRAP”](https://testing.googleblog.com/2011/02/this-code-is-crap.html). The implementation discussed here uses line or statement coverage as a proxy rather than true basis-path coverage.
 
 [^simple-made-easy]: Rich Hickey, [“Simple Made Easy”](https://www.infoq.com/presentations/Simple-Made-Easy/), Strange Loop 2011.
 
