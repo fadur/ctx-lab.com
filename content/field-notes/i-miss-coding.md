@@ -24,8 +24,6 @@ Then there are people for whom [making a living by pressing Enter](https://x.com
 
 I understand both reactions.
 
-[Armin Ronacher calls some of this *involution*](https://lucumr.pocoo.org/2026/9/7/astra-why/): more effort and more output without much improvement in what each person gets done. His agent factory ran for 35 hours and produced 75,000 lines of code and 79 commits. None of it was worth keeping.
-
 What follows are a few notes on how I work now, and what I am still trying to get right.
 
 ## My contract with the agent
