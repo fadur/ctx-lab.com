@@ -88,7 +88,7 @@ And yet, some things matter more than my whimsical ideas about good code, or how
 
 One works through SAST and Dependabot findings, dismisses false positives, and opens an issue when a security decision is missing. Another checks that changes to business behaviour, such as refund rules, trace back to an approved requirement. Both beat threat modelling and compliance in spreadsheets.
 
-I did not set out to build more process around the agent. These were simply places where being five sessions away was not an acceptable failure mode. I might write about those harnesses in a future post.
+I did not set out to build more process around the agent. These were simply places where being five sessions away was not an acceptable failure mode. They don't remove me from the process. They route the decisions I actually care about to me. I might write about those harnesses in a future post.
 
 I do not miss coding in the literal sense. I miss the confidence that I understand why the code looks the way it does. That is harder to hold onto when the implementation arrives all at once.
 
