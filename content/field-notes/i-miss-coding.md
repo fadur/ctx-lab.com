@@ -84,9 +84,11 @@ It does not catch a hallucinated API, prove security, or tell me whether the fea
 
 The obvious next move is another agent. One writes the code, another inspects the architecture, a third checks the tests, and perhaps a chief of staff coordinates them. Before long you have a very impressive graph of agents reviewing agents, and even more work to verify. I don't know how to make it stop. Please send help.
 
-And yet, for the things that matter more than whether I will enjoy maintaining the code, I have built more agents. One works through SAST and Dependabot findings, dismisses false positives, and opens an issue when a security decision is missing. Another checks that changes to business behaviour, such as refund rules, trace back to an approved requirement. Both beat threat modelling and compliance in spreadsheets.
+And yet, some things matter more than my whimsical ideas about good code. For security and compliance, I built harnesses around agents that other people could rely on, rather than tools for my own laptop. They give an agent the context for a narrow job, constrain what it can do, check what it produces, and route specific decisions to the people responsible for them.
 
-They are useful, but they still leave decisions for me. I might write about those harnesses in a future post.
+One works through SAST and Dependabot findings, dismisses false positives, and opens an issue when a security decision is missing. Another checks that changes to business behaviour, such as refund rules, trace back to an approved requirement. Both beat threat modelling and compliance in spreadsheets.
+
+I did not set out to build more process around the agent. These were simply places where being five sessions away was not an acceptable failure mode. I might write about those harnesses in a future post.
 
 I do not miss coding in the literal sense. I miss the confidence that I understand why the code looks the way it does. That is harder to hold onto when the implementation arrives all at once.
 
