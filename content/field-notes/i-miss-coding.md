@@ -84,7 +84,7 @@ The obvious next move is another agent. One writes the code, another inspects th
 
 And yet, some things matter more than my whimsical ideas about good code, or how I feel about stacking one agentic loop on top of another. For security and compliance, I built harnesses around agents that other people could rely on, rather than tools for my own laptop. They give an agent a sandbox, the context for a narrow task, constrain what it can do, check what it produces, and route specific decisions to the people responsible for them.
 
-I did not set out to build more process around the agent. These were simply places where being five sessions away was not an acceptable failure mode. Worse would be relying on the model to care about compliance or only when prompted. I might write about those harnesses in a future post.
+I did not set out to build more process around the agent. These were simply places where being five sessions away was not an acceptable failure mode. Worse would be relying on the model to care about compliance at all, or only when prompted. I might write about those harnesses in a future post.
 
 I do not miss coding in the literal sense. I miss the confidence that I understand why the code looks the way it does. That is harder to hold onto when the implementation arrives all at once.
 
