@@ -1,0 +1,15 @@
+<svg viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace">
+  <title id="title">Matching a greeting in Elixir</title>
+  <desc id="desc">Three function clauses greet in English, greet in Portuguese, and accept any other language as a fallback, so asking for Danish does not break.</desc>
+
+  <rect width="760" height="220" fill="#fbfaf7"/>
+  <line x1="32" y1="28" x2="728" y2="28" stroke="#1b1b1b" stroke-width="1.5"/>
+
+  <text x="48" y="77" fill="#1b1b1b" font-size="14">def greet(:english, name), do: "Hello, #{name}"</text>
+
+  <text x="48" y="117" fill="#1b1b1b" font-size="14">def greet(:portuguese, name), do: "Olá, #{name}"</text>
+
+  <text x="48" y="157" fill="#1b1b1b" font-size="14">def greet(_language, name), do: "Hi, #{name}"</text>
+
+  <line x1="32" y1="194" x2="728" y2="194" stroke="#1b1b1b" stroke-width="1.5"/>
+</svg>

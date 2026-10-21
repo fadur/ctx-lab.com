@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+  <title id="title">English, before it was code</title>
+  <desc id="desc">An etymology chart for five programming keywords. If comes from Old English gif; else from elles; for from for; while from hwil. Return comes through Old French retourner, composed of re, back, and tourner, to turn. Each origin is connected to the modern English word and its use in programming. Programming meanings vary between languages.</desc>
+  <rect width="1200" height="1200" fill="#fbfaf7"/>
+  <g fill="#1b1b1b">
+    <text x="64" y="68" font-family="Menlo, Consolas, monospace" font-size="18" letter-spacing="2">CONTEXT LAB / FIELD NOTES</text>
+    <line x1="64" y1="94" x2="1136" y2="94" stroke="#1b1b1b" stroke-width="2"/>
+    <text x="64" y="175" font-family="Georgia, 'Times New Roman', serif" font-size="65">English, before it was code</text>
+    <text x="66" y="224" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#6b6b6b">Five borrowed words, from their origins to programming.</text>
+
+    <g font-family="Menlo, Consolas, monospace" font-size="15" letter-spacing="1.4" fill="#6b6b6b">
+      <text x="64" y="289">ORIGIN</text>
+      <text x="502" y="289">ENGLISH</text>
+      <text x="754" y="289">IN CODE</text>
+    </g>
+    <line x1="64" y1="310" x2="1136" y2="310" stroke="#1b1b1b" stroke-width="1.5"/>
+
+    <g font-family="Georgia, 'Times New Roman', serif">
+      <text x="64" y="353" font-family="Menlo, Consolas, monospace" font-size="16" fill="#6b6b6b">OLD ENGLISH</text>
+      <text x="64" y="398" font-size="38" font-style="italic">gif</text>
+      <text x="64" y="432" font-size="23" fill="#6b6b6b">On condition that.</text>
+      <text x="502" y="388" font-family="Menlo, Consolas, monospace" font-size="39">if</text>
+      <text x="502" y="412" font-size="19" fill="#6b6b6b"><tspan x="502">"If you have time."</tspan><tspan x="502" dy="21">Declining is technically</tspan><tspan x="502" dy="21">permitted.</tspan></text>
+      <text x="754" y="387" font-size="25"><tspan x="754">Run this when</tspan><tspan x="754" dy="35">a condition is true.</tspan></text>
+
+      <text x="64" y="505" font-family="Menlo, Consolas, monospace" font-size="16" fill="#6b6b6b">OLD ENGLISH</text>
+      <text x="64" y="550" font-size="38" font-style="italic">elles</text>
+      <text x="64" y="584" font-size="23" fill="#6b6b6b">Otherwise; in another way.</text>
+      <text x="502" y="540" font-family="Menlo, Consolas, monospace" font-size="39">else</text>
+      <text x="502" y="573" font-size="19" fill="#6b6b6b"><tspan x="502">"Anything else?"</tspan><tspan x="502" dy="25">Please say no.</tspan></text>
+      <text x="754" y="539" font-size="25"><tspan x="754">Run this when</tspan><tspan x="754" dy="35">the condition is false.</tspan></text>
+
+      <text x="64" y="657" font-family="Menlo, Consolas, monospace" font-size="16" fill="#6b6b6b">OLD ENGLISH</text>
+      <text x="64" y="702" font-size="38" font-style="italic">for</text>
+      <text x="64" y="736" font-size="23" fill="#6b6b6b">Before; on behalf of.</text>
+      <text x="502" y="692" font-family="Menlo, Consolas, monospace" font-size="39">for</text>
+      <text x="502" y="725" font-size="19" fill="#6b6b6b"><tspan x="502">"For your convenience."</tspan><tspan x="502" dy="25">You weren't consulted.</tspan></text>
+      <text x="754" y="691" font-size="25"><tspan x="754">Repeat over items</tspan><tspan x="754" dy="35">or using loop controls.</tspan></text>
+
+      <text x="64" y="809" font-family="Menlo, Consolas, monospace" font-size="16" fill="#6b6b6b">OLD ENGLISH</text>
+      <text x="64" y="854" font-size="38" font-style="italic">hwīl</text>
+      <text x="64" y="888" font-size="23" fill="#6b6b6b">A period of time.</text>
+      <text x="502" y="844" font-family="Menlo, Consolas, monospace" font-size="39">while</text>
+      <text x="502" y="877" font-size="19" fill="#6b6b6b"><tspan x="502">"While you're here."</tspan><tspan x="502" dy="25">You were about to leave.</tspan></text>
+      <text x="754" y="843" font-size="25"><tspan x="754">Repeat as long as</tspan><tspan x="754" dy="35">a condition stays true.</tspan></text>
+
+      <text x="64" y="961" font-family="Menlo, Consolas, monospace" font-size="16" fill="#6b6b6b">OLD FRENCH</text>
+      <text x="64" y="1006" font-size="38" font-style="italic">retourner</text>
+      <text x="64" y="1040" font-size="23" fill="#6b6b6b">re- (back) + tourner (turn).</text>
+      <text x="502" y="996" font-family="Menlo, Consolas, monospace" font-size="39">return</text>
+      <text x="502" y="1029" font-size="19" fill="#6b6b6b"><tspan x="502">"You've gone</tspan><tspan x="502" dy="21">the wrong way."</tspan><tspan x="502" dy="21">Come back.</tspan></text>
+      <text x="754" y="995" font-size="25"><tspan x="754">Leave a function,</tspan><tspan x="754" dy="35">optionally with a result.</tspan></text>
+    </g>
+
+    <g stroke="#1b1b1b" stroke-opacity=".25" fill="none">
+      <path d="M365 393 H462 M673 393 H720 M365 545 H462 M673 545 H720 M365 697 H462 M673 697 H720 M365 849 H462 M673 849 H720 M365 1001 H462 M673 1001 H720"/>
+      <path d="M64 462 H1136 M64 614 H1136 M64 766 H1136 M64 918 H1136" stroke-opacity=".12"/>
+    </g>
+    <line x1="64" y1="1080" x2="1136" y2="1080" stroke="#1b1b1b" stroke-width="2"/>
+    <text x="64" y="1114" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#6b6b6b">Origins shown at entry into English. Code meanings vary by language.</text>
+    <text x="64" y="1160" font-family="Menlo, Consolas, monospace" font-size="17">ENGLISH AND THE INTERPRETER</text>
+    <text x="1136" y="1160" text-anchor="end" font-family="Menlo, Consolas, monospace" font-size="17">ctx-lab.com</text>
+  </g>
+</svg>
