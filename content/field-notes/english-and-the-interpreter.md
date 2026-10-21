@@ -11,7 +11,7 @@ Coding is mostly solved.
 
 There is something absurd about English becoming a programming language when humans regularly misunderstand each other using it.
 
-I love the words we use in programming. For seventy years the interpreter followed instructions and complained only when they were wrong. It's a better name now than it ever was. There's IF, which in English often means you can say no if you don't feel like it. In code, the condition decides, and nobody asks how the computer feels about it. My favourite is container, which can mean almost anything, and usually does.
+I love the words we use in programming. For seventy years the interpreter followed instructions and complained only when they were wrong.[^interpreter] It's a better name now than it ever was. There's IF, which in English often means you can say no if you don't feel like it. In code, the condition decides, and nobody asks how the computer feels about it. My favourite is container, which can mean almost anything, and usually does.
 
 ![English, before it was code: the origins of if, else, for, while, and return, alongside their programming meanings.](/images/programming-glossary.svg)
 
@@ -23,7 +23,7 @@ A few years ago I decided to pick up Elixir. GenServer looked too good to resist
 
 ![One greeting function, written as three clauses.](/images/elixir-greeting-match.svg)
 
-No switch or if statements. The arguments do the matching, and the last clause handles Danish or anything else I hadn't thought of. From the outside it's still one function.
+No switch or if statements.[^matching] The arguments do the matching, and the last clause handles Danish or anything else I hadn't thought of. From the outside it's still one function.
 
 Python never asked me to work that way, but I kept doing it. I'd sort out the cases first and write the logic after. Go programmers have a proverb I like: the bigger the interface, the weaker the abstraction.
 
@@ -48,3 +48,7 @@ English was always capable of precision. It just didn't insist on it. I can be d
 Every programming language I've learned changed what I thought to ask for, and I'm a better programmer for it, or at least I think I am. If English is the new programming language, we may stop learning new ways to think about a problem while trying to solve it.
 
 [^edgelord]: I would have used "edgelord," but Claude wouldn't let me keep it.
+
+[^interpreter]: To the programming-language theorists: yes, interpreters give programs meaning. I mean they weren't trying to guess what I meant. Please let me have the joke.
+
+[^matching]: To the Elixir people: yes, the compiled code still branches. I like not having to write it that way.
