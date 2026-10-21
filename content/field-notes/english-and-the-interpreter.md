@@ -11,17 +11,17 @@ Coding is mostly solved.
 
 There is something absurd about English becoming a programming language when humans regularly misunderstand each other using it.
 
-I still love the words we use in programming. For seventy years the interpreter followed instructions and complained only when they were wrong. It's a better name now than it ever was. There's IF, which in English often means you can say no if you don't feel like it. In code, the condition decides, and nobody asks how the computer feels about it. My favourite is container, which can mean almost anything, and usually does.
+I love the words we use in programming. For seventy years the interpreter followed instructions and complained only when they were wrong. It's a better name now than it ever was. There's IF, which in English often means you can say no if you don't feel like it. In code, the condition decides, and nobody asks how the computer feels about it. My favourite is container, which can mean almost anything, and usually does.
 
 ![English, before it was code: the origins of if, else, for, while, and return, alongside their programming meanings.](/images/programming-glossary.svg)
 
 We can agree in English that something should be simple, reliable, or secure without agreeing on what any of those words requires.
 
-Writing in a programming language meant turning those words into something specific. I could be vague in the meeting, but eventually I had to decide what I meant. English now lets me stay vague a little longer.
+Writing in a programming language meant turning those words into something specific. I could be vague in the meeting, but eventually I had to decide what I meant. With AI, I can stay vague and still get working software.
 
 A few years ago I decided to pick up Elixir. GenServer looked too good to resist, which is how they get you. I came away with a different sense of where decisions belong. Pattern matching moved them out of the logic and into the shape of the code.
 
-![This matches English and Portuguese explicitly and uses a fallback greeting for any other language.](/images/elixir-greeting-match.svg)
+![One greeting function, written as three clauses.](/images/elixir-greeting-match.svg)
 
 No switch or if statements. The arguments do the matching, and the last clause handles Danish or anything else I hadn't thought of. From the outside it's still one function.
 
@@ -35,16 +35,16 @@ That happens when I write, too. I use AI for editing, which mostly involves my b
 
 I find out for real when someone uses it. We built a customer search that requires a name. They have a phone number. It hadn't occurred to anyone building it that you might be looking for a customer precisely because you don't know their name.
 
-I enjoy this part of building software, even when the user is unimpressed by something I was quite pleased with. AI gets us to that encounter sooner. We can find out what people meant while the software is still cheap to change, rather than after six months of implementing a misunderstanding.
+I enjoy this part of building software, even when the user is unimpressed by something I was pleased with. AI gets us to that encounter sooner. We can find out what people meant while the software is still cheap to change, rather than after six months of implementing a misunderstanding.
 
 The enterprise has spent decades writing documents as though this interpreter already existed. "Improve the customer experience." "Make collaboration effortless." Somewhere a developer was expected to turn that into software. If you're lucky, you might get to work for an organization that believes an enterprise licence and a few consultants can spare it the trouble of deciding what it means. Now an agent can, and I can understand the excitement.
 
 The sentence hasn't become more precise. The listener has become more capable. It can draw on enough examples to produce a convincing version of "effortless," even when the people who requested it had different things in mind.
 
-I could respond by writing instructions so detailed that there is nothing left to interpret. But I don't do that with people, and I don't particularly want to do it with an agent. Part of being understood is not having to explain everything.
+I could respond by writing instructions so detailed that there is nothing left to interpret. But I don't do that with people, and I don't want to do it with an agent. Part of being understood is not having to explain everything.
 
 English was always capable of precision. It just didn't insist on it. I can be deliberate about a sentence, or send it off because the reader will probably get the idea. Now that reader can build something from it before I have finished my coffee.
 
-Every programming language I've learned changed what I thought to ask for, and I'm a better programmer for it, or at least I think I am. If English is the new programming language, that might be the one thing we stop picking up along the way.
+Every programming language I've learned changed what I thought to ask for, and I'm a better programmer for it, or at least I think I am. If English is the new programming language, we may stop learning new ways to think about a problem while trying to solve it.
 
 [^edgelord]: I would have used "edgelord," but Claude wouldn't let me keep it.
