@@ -1,9 +1,9 @@
 ---
-title: "Silent Correction"
+title: "The Silent Correction"
 date: 2026-10-22
 author: "Søren Christensen"
 description: "Every organisation runs on people quietly correcting its data and processes, and AI is about to consume that knowledge without replenishing it"
-draft: true
+draft: false
 ---
 *Invisible labour, and which friction to protect*
 
